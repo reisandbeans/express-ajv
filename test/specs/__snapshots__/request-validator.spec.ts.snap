@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`request-validator.spec.ts Request validation Should handle invalid data with an asynchronous schema 1`] = `
+Array [
+  "should have required property 'name'",
+]
+`;
+
+exports[`request-validator.spec.ts Request validation Should return an error for an invalid get request 1`] = `
+Array [
+  "should match pattern \\"[a-f0-9]{24}\\"",
+  "should have required property 'name'",
+  "should be >= 0",
+]
+`;
+
+exports[`request-validator.spec.ts Request validation Should return an error for an invalid post request 1`] = `
+Array [
+  "should match pattern \\"[a-f0-9]{24}\\"",
+  "should have required property 'name'",
+  "should be >= 0",
+]
+`;

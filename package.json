@@ -1,0 +1,78 @@
+{
+    "name": "express-ajv",
+    "version": "1.0.0",
+    "description": "Ajv middleware for express",
+    "main": "index.js",
+    "scripts": {
+        "test": "jest"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Tinadim/express-ajv.git"
+    },
+    "keywords": [
+        "express",
+        "node",
+        "typescript",
+        "ajv"
+    ],
+    "author": "Bernardo Reis",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/Tinadim/express-ajv/issues"
+    },
+    "homepage": "https://github.com/Tinadim/express-ajv#readme",
+    "dependencies": {
+        "ajv": "^6.12.2",
+        "express": "^4.17.1",
+        "lodash": "^4.17.15"
+    },
+    "devDependencies": {
+        "@types/express": "^4.17.6",
+        "@types/jest": "^25.2.1",
+        "@types/lodash": "^4.14.150",
+        "jest": "^25.5.1",
+        "ts-jest": "^25.5.1",
+        "tslint": "^6.1.2",
+        "tslint-config-airbnb": "^5.11.2",
+        "typescript": "^3.8.3"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "npm run lint && npm run test"
+        }
+    },
+    "jest": {
+        "collectCoverageFrom": [
+            "src/**/*.ts"
+        ],
+        "coverageDirectory": "coverage",
+        "coveragePathIgnorePatterns": [
+            "/node_modules/"
+        ],
+        "coverageReporters": [
+            "lcov"
+        ],
+        "coverageThreshold": {
+            "global": {
+                "branches": 95,
+                "functions": 95,
+                "lines": 95,
+                "statements": 95
+            }
+        },
+        "globals": {
+            "ts-jest": {
+                "tsConfig": "test/tsconfig.test.json"
+            }
+        },
+        "moduleFileExtensions": [
+            "ts",
+            "js"
+        ],
+        "transform": {
+            "^.+\\.(ts|tsx)$": "ts-jest"
+        },
+        "testEnvironment": "node"
+    }
+}
