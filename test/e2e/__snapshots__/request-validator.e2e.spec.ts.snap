@@ -1,0 +1,159 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`request-validator.e2e-spec.ts GET requests Should accept valid requests 1`] = `
+Object {
+  "success": true,
+}
+`;
+
+exports[`request-validator.e2e-spec.ts GET requests Should return an error if the request does not comply with the provided schema 1`] = `
+Object {
+  "error": Object {
+    "errors": Array [
+      Object {
+        "dataPath": ".params.userId",
+        "keyword": "pattern",
+        "message": "should match pattern \\"[a-f0-9]{24}\\"",
+        "params": Object {
+          "pattern": "[a-f0-9]{24}",
+        },
+        "schemaPath": "#/properties/params/properties/userId/pattern",
+      },
+      Object {
+        "dataPath": ".query.name",
+        "keyword": "minLength",
+        "message": "should NOT be shorter than 3 characters",
+        "params": Object {
+          "limit": 3,
+        },
+        "schemaPath": "#/properties/query/properties/name/minLength",
+      },
+      Object {
+        "dataPath": ".query.age",
+        "keyword": "type",
+        "message": "should be number",
+        "params": Object {
+          "type": "number",
+        },
+        "schemaPath": "#/properties/query/properties/age/type",
+      },
+      Object {
+        "dataPath": ".query",
+        "keyword": "required",
+        "message": "should have required property 'city'",
+        "params": Object {
+          "missingProperty": "city",
+        },
+        "schemaPath": "#/properties/query/required",
+      },
+    ],
+    "message": "validation failed",
+  },
+}
+`;
+
+exports[`request-validator.e2e-spec.ts GET requests Should return the error formatted in the appropriate format 1`] = `
+Object {
+  "error": Object {
+    "details": Array [
+      Object {
+        "field": ".params.userId",
+        "message": "should match pattern \\"[a-f0-9]{24}\\"",
+      },
+      Object {
+        "field": ".query.name",
+        "message": "should NOT be shorter than 3 characters",
+      },
+      Object {
+        "field": ".query.age",
+        "message": "should be number",
+      },
+      Object {
+        "field": ".query",
+        "message": "should have required property 'city'",
+      },
+    ],
+    "message": "Original error message: validation failed",
+  },
+}
+`;
+
+exports[`request-validator.e2e-spec.ts POST requests Should accept valid requests 1`] = `
+Object {
+  "success": true,
+}
+`;
+
+exports[`request-validator.e2e-spec.ts POST requests Should return an error if the request does not comply with the provided schema 1`] = `
+Object {
+  "error": Object {
+    "errors": Array [
+      Object {
+        "dataPath": ".params.userId",
+        "keyword": "pattern",
+        "message": "should match pattern \\"[a-f0-9]{24}\\"",
+        "params": Object {
+          "pattern": "[a-f0-9]{24}",
+        },
+        "schemaPath": "#/properties/params/properties/userId/pattern",
+      },
+      Object {
+        "dataPath": ".body.name",
+        "keyword": "minLength",
+        "message": "should NOT be shorter than 3 characters",
+        "params": Object {
+          "limit": 3,
+        },
+        "schemaPath": "#/properties/body/properties/name/minLength",
+      },
+      Object {
+        "dataPath": ".body.age",
+        "keyword": "minimum",
+        "message": "should be >= 0",
+        "params": Object {
+          "comparison": ">=",
+          "exclusive": false,
+          "limit": 0,
+        },
+        "schemaPath": "#/properties/body/properties/age/minimum",
+      },
+      Object {
+        "dataPath": ".body",
+        "keyword": "required",
+        "message": "should have required property 'city'",
+        "params": Object {
+          "missingProperty": "city",
+        },
+        "schemaPath": "#/properties/body/required",
+      },
+    ],
+    "message": "validation failed",
+  },
+}
+`;
+
+exports[`request-validator.e2e-spec.ts POST requests Should return the error formatted in the appropriate format 1`] = `
+Object {
+  "error": Object {
+    "details": Array [
+      Object {
+        "field": ".params.userId",
+        "message": "should match pattern \\"[a-f0-9]{24}\\"",
+      },
+      Object {
+        "field": ".body.name",
+        "message": "should NOT be shorter than 3 characters",
+      },
+      Object {
+        "field": ".body.age",
+        "message": "should be >= 0",
+      },
+      Object {
+        "field": ".body",
+        "message": "should have required property 'city'",
+      },
+    ],
+    "message": "Original error message: validation failed",
+  },
+}
+`;

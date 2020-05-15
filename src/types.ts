@@ -2,9 +2,14 @@ import { RequestHandler, Request } from 'express';
 import Ajv, { Options as AjvOptions } from 'ajv';
 
 export interface RequestSchema {
-    body?: object;
-    params?: object;
-    query?: object;
+    type: 'object';
+    properties: {
+        body?: object;
+        params?: object;
+        query?: object;
+    };
+    required?: string[];
+    [key: string]: any;
 }
 
 export interface ValidatorOptions {
@@ -14,7 +19,7 @@ export interface ValidatorOptions {
     getContextParams?: (req: Request) => any;
 }
 
-export type SchemaCollection = { [schemaName: string]: object };
+export type SchemaCollection = { [schemaName: string]: RequestSchema };
 
 export interface ValidatorMiddleware {
     ajv: Ajv.Ajv;

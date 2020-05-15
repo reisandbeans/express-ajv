@@ -1,0 +1,95 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`request-schema.spec.ts Should wrap the provided schema with the standard get request schema format with params 1`] = `
+Object {
+  "properties": Object {
+    "params": Object {
+      "properties": Object {
+        "userId": Object {
+          "type": "string",
+        },
+      },
+      "type": "object",
+    },
+    "query": Object {
+      "properties": Object {
+        "name": Object {
+          "type": "string",
+        },
+      },
+      "type": "object",
+    },
+  },
+  "required": Array [
+    "query",
+    "params",
+  ],
+  "type": "object",
+}
+`;
+
+exports[`request-schema.spec.ts Should wrap the provided schema with the standard get request schema format without params 1`] = `
+Object {
+  "properties": Object {
+    "query": Object {
+      "properties": Object {
+        "name": Object {
+          "type": "string",
+        },
+      },
+      "type": "object",
+    },
+  },
+  "required": Array [
+    "query",
+  ],
+  "type": "object",
+}
+`;
+
+exports[`request-schema.spec.ts Should wrap the provided schema with the standard post request schema format with params 1`] = `
+Object {
+  "properties": Object {
+    "body": Object {
+      "properties": Object {
+        "name": Object {
+          "type": "string",
+        },
+      },
+      "type": "object",
+    },
+    "params": Object {
+      "properties": Object {
+        "userId": Object {
+          "type": "string",
+        },
+      },
+      "type": "object",
+    },
+  },
+  "required": Array [
+    "body",
+    "params",
+  ],
+  "type": "object",
+}
+`;
+
+exports[`request-schema.spec.ts Should wrap the provided schema with the standard post request schema format without params 1`] = `
+Object {
+  "properties": Object {
+    "body": Object {
+      "properties": Object {
+        "name": Object {
+          "type": "string",
+        },
+      },
+      "type": "object",
+    },
+  },
+  "required": Array [
+    "body",
+  ],
+  "type": "object",
+}
+`;
