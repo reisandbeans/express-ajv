@@ -43,7 +43,7 @@ describe('create-validator.spec.ts', () => {
         const validatorSpy = jest.fn();
         const ajv = new Ajv();
         const options = {
-            formatError: (err?: any) => err,
+            errorFormatter: (err?: any) => err,
         };
 
         (RequestValidator as any).mockImplementation((schemas: SchemaCollection, options?: ValidatorOptions) => {

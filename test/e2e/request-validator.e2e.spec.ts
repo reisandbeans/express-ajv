@@ -100,7 +100,7 @@ describe('request-validator.e2e-spec.ts', () => {
     }
 
     async function testFormattedError(method: 'get' | 'post') {
-        await createExpressApp({ formatError: errorFormatter });
+        await createExpressApp({ errorFormatter });
         await testInvalidRequest(method);
     }
 

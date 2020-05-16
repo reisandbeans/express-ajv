@@ -6,16 +6,16 @@ import { SchemaCollection, ValidatorOptions } from './types';
 export class RequestValidator {
     ajv: Ajv.Ajv;
     private validators: { [schemaName: string]: ValidateFunction } = {};
-    private formatError: (error: any) => any;
-    private getContextParams: (req: Request) => any;
+    private errorFormatter: (error: any) => any;
+    private contextExtractor: (req: Request) => any;
 
     constructor(
         schemas: SchemaCollection,
         options?: ValidatorOptions,
     ) {
         this.ajv = options?.ajv ?? new Ajv(options?.ajvOptions);
-        this.formatError = options?.formatError ?? this.defaultErrorFormatter;
-        this.getContextParams = options?.getContextParams ?? this.defaultValidationContext;
+        this.errorFormatter = options?.errorFormatter ?? this.defaultErrorFormatter;
+        this.contextExtractor = options?.contextExtractor ?? this.defaultValidationContext;
         this.registerSchemas(schemas);
     }
 
@@ -50,14 +50,14 @@ export class RequestValidator {
         const validator = this.getValidatorForSchema(schemaName);
 
         const middleware: RequestHandler = (req: Request, res: Response, next: NextFunction) => {
-            const contextParams = this.getContextParams(req);
+            const contextParams = this.contextExtractor(req);
             const context = Object.assign({}, this.ajv, contextParams);
             const dataToValidate = pick(req, ['body', 'params', 'query']);
 
             return this.validate(dataToValidate, validator, context)
                 .then(() => next())
                 .catch((error) => {
-                    const formattedError = this.formatError(error);
+                    const formattedError = this.errorFormatter(error);
                     next(formattedError);
                 });
         };

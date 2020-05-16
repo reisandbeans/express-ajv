@@ -44,7 +44,6 @@
         "typescript": "^3.8.3"
     },
     "peerDependencies": {
-        "express": "^4.0.0",
         "ajv": "^6.0.0"
     },
     "husky": {

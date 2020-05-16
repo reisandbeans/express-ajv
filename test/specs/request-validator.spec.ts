@@ -128,7 +128,7 @@ describe('request-validator.spec.ts', () => {
 
     it('Should use a custom formatter to format validation errors', (done) => {
         const options: ValidatorOptions = {
-            formatError: (error) => {
+            errorFormatter: (error) => {
                 error.message = 'my custom message';
                 return error;
             },
@@ -143,7 +143,7 @@ describe('request-validator.spec.ts', () => {
 
     it('Should use a custom function to get the context validation from the request', (done) => {
         const options: ValidatorOptions = {
-            getContextParams: (request: any) => {
+            contextExtractor: (request: any) => {
                 return { foo: request.foo };
             },
         };

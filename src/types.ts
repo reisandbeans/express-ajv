@@ -15,8 +15,8 @@ export interface RequestSchema {
 export interface ValidatorOptions {
     ajv?: Ajv.Ajv;
     ajvOptions?: AjvOptions;
-    formatError?: (error: any) => any;
-    getContextParams?: (req: Request) => any;
+    errorFormatter?: (error: any) => any;
+    contextExtractor?: (req: Request) => any;
 }
 
 export type SchemaCollection = { [schemaName: string]: RequestSchema };
