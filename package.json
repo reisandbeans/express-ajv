@@ -1,6 +1,6 @@
 {
     "name": "express-ajv",
-    "version": "1.0.0",
+    "version": "0.0.0",
     "description": "Ajv middleware for express",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
