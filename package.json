@@ -1,10 +1,15 @@
 {
     "name": "express-ajv",
-    "version": "1.0.0",
+    "version": "0.0.0",
     "description": "Ajv middleware for express",
-    "main": "index.js",
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
     "scripts": {
+        "build": "tsc",
         "lint": "tslint -p test/tsconfig.test.json -t codeFrame",
+        "prepublish": "npm run build",
+        "preversion": "npm run build",
+        "postversion": "publish-to-git --force",
         "test": "jest"
     },
     "repository": {
@@ -23,6 +28,9 @@
         "url": "https://github.com/Tinadim/express-ajv/issues"
     },
     "homepage": "https://github.com/Tinadim/express-ajv#readme",
+    "files": [
+        "dist"
+    ],
     "dependencies": {
         "lodash": "^4.17.15"
     },
