@@ -99,11 +99,6 @@ describe('request-validator.e2e-spec.ts', () => {
         expect(response.status).toBe(200);
     }
 
-    async function testFormattedError(method: 'get' | 'post') {
-        await createExpressApp({ errorFormatter });
-        await testInvalidRequest(method);
-    }
-
     describe('GET requests', () => {
         it('Should return an error if the request does not comply with the provided schema', async () => {
             await createExpressApp();
@@ -113,10 +108,6 @@ describe('request-validator.e2e-spec.ts', () => {
         it('Should accept valid requests', async () => {
             await createExpressApp({ ajvOptions: { coerceTypes: true } });
             await testValidRequest('get');
-        });
-
-        it('Should return the error formatted in the appropriate format', async () => {
-            await testFormattedError('get');
         });
     });
 
@@ -129,10 +120,6 @@ describe('request-validator.e2e-spec.ts', () => {
         it('Should accept valid requests', async () => {
             await createExpressApp();
             await testValidRequest('post');
-        });
-
-        it('Should return the error formatted in the appropriate format', async () => {
-            await testFormattedError('post');
         });
     });
 });

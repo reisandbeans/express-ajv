@@ -6,7 +6,6 @@ import { SchemaCollection, ValidatorOptions } from './types';
 export class RequestValidator {
     ajv: Ajv.Ajv;
     private validators: { [schemaName: string]: ValidateFunction } = {};
-    private errorFormatter: (error: any) => any;
     private contextExtractor: (req: Request) => any;
 
     constructor(
@@ -14,7 +13,6 @@ export class RequestValidator {
         options?: ValidatorOptions,
     ) {
         this.ajv = options?.ajv ?? new Ajv(options?.ajvOptions);
-        this.errorFormatter = options?.errorFormatter ?? this.defaultErrorFormatter;
         this.contextExtractor = options?.contextExtractor ?? this.defaultValidationContext;
         this.registerSchemas(schemas);
     }
@@ -38,10 +36,6 @@ export class RequestValidator {
         return validator;
     }
 
-    private defaultErrorFormatter(error: any) {
-        return error;
-    }
-
     private defaultValidationContext(req: Request) {
         return {};
     }
@@ -57,8 +51,7 @@ export class RequestValidator {
             return this.validate(dataToValidate, validator, context)
                 .then(() => next())
                 .catch((error) => {
-                    const formattedError = this.errorFormatter(error);
-                    next(formattedError);
+                    next(error);
                 });
         };
 

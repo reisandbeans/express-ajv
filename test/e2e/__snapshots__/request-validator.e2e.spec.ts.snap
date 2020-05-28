@@ -52,32 +52,6 @@ Object {
 }
 `;
 
-exports[`request-validator.e2e-spec.ts GET requests Should return the error formatted in the appropriate format 1`] = `
-Object {
-  "error": Object {
-    "details": Array [
-      Object {
-        "field": ".params.userId",
-        "message": "should match pattern \\"[a-f0-9]{24}\\"",
-      },
-      Object {
-        "field": ".query.name",
-        "message": "should NOT be shorter than 3 characters",
-      },
-      Object {
-        "field": ".query.age",
-        "message": "should be number",
-      },
-      Object {
-        "field": ".query",
-        "message": "should have required property 'city'",
-      },
-    ],
-    "message": "Original error message: validation failed",
-  },
-}
-`;
-
 exports[`request-validator.e2e-spec.ts POST requests Should accept valid requests 1`] = `
 Object {
   "success": true,
@@ -128,32 +102,6 @@ Object {
       },
     ],
     "message": "validation failed",
-  },
-}
-`;
-
-exports[`request-validator.e2e-spec.ts POST requests Should return the error formatted in the appropriate format 1`] = `
-Object {
-  "error": Object {
-    "details": Array [
-      Object {
-        "field": ".params.userId",
-        "message": "should match pattern \\"[a-f0-9]{24}\\"",
-      },
-      Object {
-        "field": ".body.name",
-        "message": "should NOT be shorter than 3 characters",
-      },
-      Object {
-        "field": ".body.age",
-        "message": "should be >= 0",
-      },
-      Object {
-        "field": ".body",
-        "message": "should have required property 'city'",
-      },
-    ],
-    "message": "Original error message: validation failed",
   },
 }
 `;

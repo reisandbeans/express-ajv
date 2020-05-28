@@ -15,7 +15,6 @@ export interface RequestSchema {
 export interface ValidatorOptions {
     ajv?: Ajv.Ajv;
     ajvOptions?: AjvOptions;
-    errorFormatter?: (error: any) => any;
     contextExtractor?: (req: Request) => any;
 }
 

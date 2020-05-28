@@ -37,7 +37,6 @@ The main function exposed by the library is `createValidator` which is the metho
 - `options: ValidatorOptions` - optional object with configs to be used by the library. Available options are:
     - `ajv: Ajv` - an existing instance of `ajv`. If not provided, a new instance will be created. Default: `undefined`
     - `ajvOptions: Ajv.Options` - options to be provided to `ajv` if a new instance is to be created. Will be ignored if `options.ajv` is provided. Default: `undefined`
-    - `errorFormatter: (error?: any) => any` - function to format errors return by `ajv` in case validation fails. Will be used before passing the error to `express` error handler. Default: `noop`
     - `contextExtractor: (req: Request) => any` - function to extract properties from the request and use as additional context to custom `ajv` validators.
 
 The middleware returned by `createValidator` should be used as follows:

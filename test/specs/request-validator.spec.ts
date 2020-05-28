@@ -126,21 +126,6 @@ describe('request-validator.spec.ts', () => {
         expect(options).not.toBe(ajvOptions);
     });
 
-    it('Should use a custom formatter to format validation errors', (done) => {
-        const options: ValidatorOptions = {
-            errorFormatter: (error) => {
-                error.message = 'my custom message';
-                return error;
-            },
-        };
-        const requestValidator = new RequestValidator(schemas, options);
-        const validatorMiddleware = requestValidator.validateSchema('getRequest');
-        validatorMiddleware({} as any, {} as any, (error: any) => {
-            expect(error.message).toEqual('my custom message');
-            done();
-        });
-    });
-
     it('Should use a custom function to get the context validation from the request', (done) => {
         const options: ValidatorOptions = {
             contextExtractor: (request: any) => {
