@@ -32,7 +32,7 @@
         "dist"
     ],
     "dependencies": {
-        "lodash": "^4.17.15"
+        "lodash": "^4.17.21"
     },
     "devDependencies": {
         "@types/express": "^4.17.6",
